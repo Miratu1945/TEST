@@ -435,7 +435,7 @@ def manage_invoices():
                 if st.button(f"Mark Paid - {invoice_id}"):
                     c.execute("UPDATE invoices SET payment_status='Paid' WHERE invoice_id=?", (invoice_id,))
                     conn.commit()
-                    st.experimental_rerun()
+                    st.rerun()
             st.write("---")
     else:
         st.info("No invoices found.")
@@ -454,7 +454,7 @@ def manage_invoices():
             """, (invoice_id, contract_id, amount, invoice_date, "Pending"))
             conn.commit()
             st.success(f"Invoice {invoice_id} generated!")
-            st.experimental_rerun()
+            st.rerun()
 
     conn.close()
 
