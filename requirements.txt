@@ -9,7 +9,3 @@ networkx
 xlsxwriter
 plotly
 textblob
-sqlite3
-uuid
-datetime
-pysqlite3
