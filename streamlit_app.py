@@ -148,7 +148,7 @@ def login_page():
             # user_record = (user_id, username, password, role)
             st.session_state.user_id = user_record[0]
             st.success("Login successful!")
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.error("Invalid username or password")
 
