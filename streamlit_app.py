@@ -186,7 +186,7 @@ def app_layout(role):
         manage_invoices()
     elif choice == "Logout":
         st.session_state.user_id = None
-        st.experimental_rerun()
+        st.rerun()
 
 def home_page(role):
     st.title("Welcome to the O&M Contract Management Dashboard")
@@ -225,7 +225,7 @@ def manage_contracts():
                 if st.button(f"Submit for Approval - {contract_id}", key=f"submit_{contract_id}"):
                     submit_contract_for_approval(contract_id)
                     st.success("Submitted for approval.")
-                    st.experimental_rerun()
+                    st.rerun()
             st.write("---")
     else:
         st.info("No contracts found.")
@@ -242,7 +242,7 @@ def manage_contracts():
         if submitted:
             create_contract(vendor_name, description, start_date, end_date, budget)
             st.success("New contract created.")
-            st.experimental_rerun()
+            st.rerun()
 
 def create_contract(vendor, desc, start_date, end_date, budget):
     conn = sqlite3.connect("contracts.db")
@@ -307,10 +307,10 @@ def review_contracts():
             col1, col2 = st.columns(2)
             if col1.button(f"Approve {contract_id}", key=f"approve_{contract_id}"):
                 approve_contract(approval_id, contract_id)
-                st.experimental_rerun()
+                st.rerun()
             if col2.button(f"Reject {contract_id}", key=f"reject_{contract_id}"):
                 reject_contract(approval_id, contract_id)
-                st.experimental_rerun()
+                st.rerun()
             st.write("---")
     else:
         st.info("No contracts pending your approval.")
@@ -403,7 +403,7 @@ def manage_service_reports():
             conn.commit()
             conn.close()
             st.success("Service report submitted.")
-            st.experimental_rerun()
+            st.rerun()
 
 # ------------------------
 # 6. INVOICES (Finance)
