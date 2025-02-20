@@ -1,0 +1,15 @@
+streamlit
+pandas
+joblib
+scikit-learn
+openpyxl
+network
+matplotlib
+networkx
+xlsxwriter
+plotly
+textblob
+sqlite3
+uuid
+datetime
+pysqlite3
